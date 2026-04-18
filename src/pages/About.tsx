@@ -9,7 +9,7 @@ import AnimatedBlobs from "@/components/AnimatedBlobs";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const clubs = [
-  { name: "Microsoft Student Society", role: "Lead Organizer", icon: Cpu },
+  { name: "IEM-UEM groups", role: "Lead Organizer", icon: Cpu },
   { name: "Google Developer Group", role: "Tech Partner", icon: Globe },
   { name: "IEEE Student Branch", role: "Knowledge Partner", icon: Lightbulb },
   { name: "ACM Chapter", role: "Coding Partner", icon: Sparkles },
@@ -85,8 +85,8 @@ const About = () => {
               transition={{ delay: 0.5 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              The flagship multi-domain event organized by the Microsoft Student
-              Society at UEM Kolkata — where innovation, creativity, and
+              The flagship multi-domain event organized by the IEM-UEM groups
+              at UEM Kolkata — where innovation, creativity, and
               competition converge.
             </motion.p>
           </div>
@@ -212,7 +212,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Microsoft Student Society */}
+        {/* IEM-UEM groups */}
         <section className="section-padding">
           <div className="container mx-auto">
             <motion.div
@@ -224,19 +224,17 @@ const About = () => {
             >
               <Users className="text-primary mx-auto mb-4" size={40} />
               <h2 className="font-heading text-3xl font-bold text-foreground mb-4">
-                Microsoft Student Society
+                IEM-UEM groups
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                The Microsoft Student Society at UEM Kolkata is a thriving
-                community of student developers, designers, and innovators.
-                Since its inception, the society has organized numerous
-                workshops, hackathons, and tech talks — fostering a culture of
-                learning and collaboration.
+                The IEM-UEM groups are a thriving ecosystem of education and
+                innovation, fostering excellence in engineering, management,
+                and science across their various campuses.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                IGNITIA is our flagship annual event, bringing together the best
-                minds from across the region to compete, learn, and celebrate
-                technology.
+                IGNITIA is their flagship annual event, bringing together the
+                best minds from across the region to compete, learn, and
+                celebrate technology.
               </p>
             </motion.div>
           </div>

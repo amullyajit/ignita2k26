@@ -25,7 +25,7 @@ const Footer = () => (
         <motion.div variants={fadeUp} className="md:col-span-1">
           <Link to="/" className="font-heading text-2xl font-bold gradient-text">IGNITIA'26</Link>
           <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-            The flagship multi-domain event by Microsoft Student Society, UEM Kolkata.
+            The flagship multi-domain event by IEM-UEM groups, UEM Kolkata.
           </p>
           <div className="flex gap-3 mt-4">
             {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
@@ -104,7 +104,7 @@ const Footer = () => (
         transition={{ duration: 0.8, delay: 0.3 }}
         className="border-t border-glass-border mt-12 pt-6 text-center text-xs text-muted-foreground origin-center"
       >
-        © 2026 IGNITIA'26 — Microsoft Student Society, UEM Kolkata. All rights reserved.
+        © 2026 IGNITIA'26 — IEM-UEM groups, UEM Kolkata. All rights reserved.
       </motion.div>
     </div>
   </footer>

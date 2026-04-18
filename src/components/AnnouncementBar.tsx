@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const announcements = [
   "⚡ IGNITIA'26 is LIVE — Register Now Before Seats Fill Up!",
   "🏆 Prize Pool: ₹2L+ across 6 events — Hackathon, Gaming, Quiz, Debates & more!",
-  "📅 Aug 1–2, 2026 · UEM Kolkata · Microsoft Student Society",
+  "📅 Aug 1–2, 2026 · UEM Kolkata · IEM-UEM groups",
   "🎮 Blind Coding, Guess Who & Gaming Tournament — Day 2 Events Registration Open!",
   "🧠 Debates & Quiz happening on Day 1 — Don't miss out!",
 ];

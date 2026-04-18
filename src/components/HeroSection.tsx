@@ -269,7 +269,7 @@ const HeroSection = () => {
                   className="text-primary animate-spin"
                   style={{ animationDuration: "3s" }}
                 />
-                <span>Microsoft Student Society × UEM Kolkata</span>
+                <span>IEM-UEM groups × UEM Kolkata</span>
               </div>
 
               {/* Main Title */}
