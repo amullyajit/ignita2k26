@@ -62,15 +62,8 @@ const AnnouncementBar = () => {
           </span>
         </div>
 
-        {/* Right: CTA + close */}
+        {/* Right: close only */}
         <div className="flex items-center gap-3 shrink-0">
-          <Link
-            to="/events"
-            className="hidden sm:inline-flex items-center gap-1 bg-red-600 hover:bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-md transition-colors whitespace-nowrap"
-            style={{ boxShadow: "0 0 14px hsl(0 95% 55% / 0.5)" }}
-          >
-            Register <ChevronRight size={12} />
-          </Link>
           <button
             onClick={() => setDismissed(true)}
             className="text-white/40 hover:text-white/80 transition-colors"

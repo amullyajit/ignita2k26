@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Instagram, Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const stagger = {
@@ -28,17 +28,16 @@ const Footer = () => (
             The flagship multi-domain event by IEM-UEM groups, UEM Kolkata.
           </p>
           <div className="flex gap-3 mt-4">
-            {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
-              <motion.a
-                key={i}
-                href="#"
-                whileHover={{ scale: 1.2, y: -3 }}
-                whileTap={{ scale: 0.9 }}
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Icon size={16} />
-              </motion.a>
-            ))}
+            <motion.a
+              href="https://www.instagram.com/ignitia2k26/"
+              target="_blank"
+              rel="noreferrer noopener"
+              whileHover={{ scale: 1.2, y: -3 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-9 h-9 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-primary transition-colors flame-icon"
+            >
+              <Instagram size={16} />
+            </motion.a>
           </div>
         </motion.div>
 

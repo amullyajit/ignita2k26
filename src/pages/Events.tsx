@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, type FC } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   motion,
   useScroll,
@@ -26,93 +27,15 @@ import PageTransition from "@/components/PageTransition";
 import ParticleField from "@/components/ParticleField";
 import AnimatedBlobs from "@/components/AnimatedBlobs";
 import ScrollProgress from "@/components/ScrollProgress";
+import { events, EventItem } from "@/lib/eventData";
 
-const events = [
-  {
-    icon: Cpu,
-    title: "Hackathon",
-    prize: "₹35,000",
-    teamSize: "2-4",
-    duration: "10 Hours - Day 1",
-    color: "from-primary to-neon-cyan",
-    description: "Build innovative software from scratch.",
-    overview: "A thrilling 10-hour hackathon where teams must design and develop a functional prototype.",
-    rules: ["Teams of 2-4 members", "Any tech stack allowed", "Must be built during the event", "Assets can be pre-made"],
-    criteria: ["Innovation", "Technical Execution", "Impact", "Presentation Quality"],
-  },
-  {
-    icon: Gamepad2,
-    title: "Gaming Tournament",
-    prize: "₹30,000",
-    teamSize: "1-5",
-    duration: "Day 2",
-    color: "from-neon-cyan to-secondary",
-    description: "Compete in intense esports battles.",
-    overview: "The ultimate gaming showdown featuring popular esports titles.",
-    rules: ["Own devices for mobile games", "PCs provided for PC games", "Standard tournament bracket", "Fair play policy enforced"],
-    criteria: ["Tournament Placement", "Sportsmanship"],
-  },
-  {
-    icon: HelpCircle,
-    title: "Guess Who",
-    prize: "₹10,000",
-    teamSize: "2-4",
-    duration: "Day 2",
-    color: "from-secondary to-neon-pink",
-    description: "A mystery event full of surprises.",
-    overview: "A mysterious event that blends puzzles, riddles, and unexpected challenges.",
-    rules: ["Teams of 2-4", "Clues are provided at each stage", "No internet usage allowed", "Time-based scoring"],
-    criteria: ["Problem Solving", "Teamwork", "Creative Thinking"],
-  },
-  {
-    icon: Code,
-    title: "Blind Coding",
-    prize: "₹15,000",
-    teamSize: "1",
-    duration: "Day 2",
-    color: "from-neon-pink to-primary",
-    description: "Code without screen visibility.",
-    overview: "Test your coding muscle memory and logical flow by programming with the monitor turned off.",
-    rules: ["Individual participation", "Standard IDE provided", "Monitor is turned off", "Syntax must be exact"],
-    criteria: ["Correctness", "Syntax Accuracy", "Logic", "Speed"],
-  },
-  {
-    icon: Users,
-    title: "Debates",
-    prize: "₹15,000",
-    teamSize: "2",
-    duration: "Day 1",
-    color: "from-primary to-secondary",
-    description: "Argue for or against trending tech topics.",
-    overview: "A passionate battle of words focusing on modern technology ethics and progress.",
-    rules: ["Teams of 2", "Topics assigned 15 mins prior", "Time strictly enforced", "Respectful conduct required"],
-    criteria: ["Argument Quality", "Rebuttal", "Confidence", "Relevance"],
-  },
-  {
-    icon: Brain,
-    title: "Quiz",
-    prize: "₹15,000",
-    teamSize: "2-3",
-    duration: "Day 1",
-    color: "from-neon-cyan to-neon-pink",
-    description: "Test your knowledge across tech, science, pop culture.",
-    overview: "A multi-round quiz spanning technology, science, current affairs, and general knowledge.",
-    rules: ["Teams of 2-3 members", "Multiple elimination rounds", "No electronic devices", "Time-limited answers"],
-    criteria: ["Accuracy", "Speed", "Team Coordination"],
-  },
-];
-
-const EventCard = ({
-  event,
-  index,
-  isExpanded,
-  onToggle,
-}: {
-  event: (typeof events)[0];
+const EventCard: FC<{
+  event: EventItem;
   index: number;
   isExpanded: boolean;
   onToggle: () => void;
-}) => {
+  onNavigate: () => void;
+}> = ({ event, index, isExpanded, onToggle, onNavigate }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -136,7 +59,7 @@ const EventCard = ({
     >
       <motion.div
         className="p-6 cursor-pointer"
-        onClick={onToggle}
+        onClick={onNavigate}
         whileHover={{ backgroundColor: "hsla(240,15%,10%,0.3)" }}
       >
         <div className="flex items-start gap-4">
@@ -152,6 +75,10 @@ const EventCard = ({
                 {event.title}
               </h3>
               <motion.div
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onToggle();
+                }}
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
@@ -232,14 +159,18 @@ const EventCard = ({
                   </ul>
                 </div>
               </div>
-              <motion.a
-                href="#"
+              <motion.button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onNavigate();
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="glow-button inline-flex items-center gap-2 text-sm !px-6 !py-2"
               >
                 Register Now <ArrowRight size={14} />
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
@@ -250,6 +181,7 @@ const EventCard = ({
 
 const Events = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <PageTransition>
@@ -299,6 +231,7 @@ const Events = () => {
                 onToggle={() =>
                   setExpandedIndex(expandedIndex === i ? null : i)
                 }
+                onNavigate={() => navigate(`/events/${event.slug}`)}
               />
             ))}
           </div>

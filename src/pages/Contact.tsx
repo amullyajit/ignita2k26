@@ -39,10 +39,13 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github, label: "GitHub", href: "#" },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/ignitia2k26/",
+    target: "_blank",
+    rel: "noreferrer noopener",
+  },
 ];
 
 const Contact = () => {
@@ -139,6 +142,8 @@ const Contact = () => {
                     <motion.a
                       key={s.label}
                       href={s.href}
+                      target={s.target}
+                      rel={s.rel}
                       whileHover={{ scale: 1.2, y: -4 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-11 h-11 rounded-lg glass-card bg-card/75 backdrop-blur-2xl flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"

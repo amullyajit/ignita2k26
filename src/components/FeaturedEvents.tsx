@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Code,
@@ -19,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const events = [
   {
+    slug: "hackathon",
     icon: Cpu,
     title: "Hackathon",
     description: "Build innovative software from scratch in 10 intense hours.",
@@ -27,6 +29,7 @@ const events = [
     color: "from-red-900/30 to-red-700/10",
   },
   {
+    slug: "blind-coding",
     icon: Code,
     title: "Blind Coding",
     description: "Code without screen visibility. Pure logic and memory.",
@@ -35,6 +38,7 @@ const events = [
     color: "from-orange-900/30 to-red-700/10",
   },
   {
+    slug: "quiz",
     icon: Brain,
     title: "Quiz",
     description: "Test your knowledge across tech, science, pop culture.",
@@ -43,6 +47,7 @@ const events = [
     color: "from-red-900/30 to-orange-700/10",
   },
   {
+    slug: "gaming-tournament",
     icon: Gamepad2,
     title: "Gaming Tournament",
     description: "Compete in intense esports battles. Valorant, BGMI & more.",
@@ -51,6 +56,7 @@ const events = [
     color: "from-red-800/30 to-red-900/10",
   },
   {
+    slug: "guess-who",
     icon: HelpCircle,
     title: "Guess Who",
     description: "A mystery event full of surprises. Can you decode the clues?",
@@ -59,6 +65,7 @@ const events = [
     color: "from-orange-900/30 to-red-800/10",
   },
   {
+    slug: "debates",
     icon: Users,
     title: "Debates",
     description: "Argue for or against trending tech topics under timed pressure.",
@@ -76,6 +83,7 @@ const RaCornerBracket = () => (
 );
 
 const TiltCard = ({ event }: { event: (typeof events)[0] }) => {
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
@@ -95,6 +103,14 @@ const TiltCard = ({ event }: { event: (typeof events)[0] }) => {
   return (
     <div
       ref={ref}
+      role="button"
+      tabIndex={0}
+      onClick={() => navigate(`/events/${event.slug}`)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          navigate(`/events/${event.slug}`);
+        }
+      }}
       className="featured-event-card hologram-card corner-energy group p-6 cursor-pointer relative"
     >
       {/* RA.One corner decorations */}

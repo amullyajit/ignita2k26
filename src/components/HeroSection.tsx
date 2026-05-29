@@ -322,13 +322,13 @@ const HeroSection = () => {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mt-2">
                 <a
-                  href="#register"
+                  href="/events"
                   className="glow-button pulse-cta cta-sweep inline-flex items-center gap-2 ripple-button"
                 >
                   Register Now <ArrowRight size={18} />
                 </a>
                 <a
-                  href="#events"
+                  href="/#events"
                   className="glow-button-secondary inline-flex items-center gap-2 ripple-button"
                 >
                   Explore Events

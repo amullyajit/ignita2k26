@@ -8,6 +8,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
 import Schedule from "./pages/Schedule";
 import SponsorsPage from "./pages/SponsorsPage";
 import Team from "./pages/Team";
@@ -26,6 +27,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:eventSlug" element={<EventDetail />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/sponsors" element={<SponsorsPage />} />
         <Route path="/team" element={<Team />} />

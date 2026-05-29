@@ -274,6 +274,68 @@
     transition: 0s;
   }
 
+  /* Flame hover effect for social icons */
+  .flame-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s ease;
+  }
+
+  .flame-icon svg {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.18s ease, filter 0.18s ease;
+  }
+
+  .flame-icon::before,
+  .flame-icon::after {
+    content: "";
+    position: absolute;
+    bottom: -6%;
+    width: 60%;
+    height: 60%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% 100%;
+    filter: blur(6px);
+    opacity: 0;
+    transform-origin: center bottom;
+    pointer-events: none;
+  }
+
+  .flame-icon::before {
+    left: 6%;
+    background-image: radial-gradient(circle at 40% 30%, rgba(255,221,89,0.95) 0%, rgba(255,140,0,0.85) 30%, rgba(220,30,20,0.6) 60%, transparent 70%);
+    transform: translateY(6px) scaleX(0.9) rotate(-6deg);
+  }
+
+  .flame-icon::after {
+    right: 6%;
+    background-image: radial-gradient(circle at 60% 30%, rgba(255,200,80,0.95) 0%, rgba(255,100,10,0.85) 30%, rgba(200,40,30,0.6) 60%, transparent 70%);
+    transform: translateY(8px) scaleX(0.95) rotate(6deg);
+  }
+
+  .flame-icon:hover::before,
+  .flame-icon:hover::after {
+    animation: flameFlicker 700ms ease-in-out infinite;
+    opacity: 1;
+  }
+
+  .flame-icon:hover svg {
+    transform: scale(1.06) translateY(-2px);
+    filter: drop-shadow(0 6px 14px rgba(255,120,40,0.12));
+  }
+
+  @keyframes flameFlicker {
+    0% { transform: translateY(6px) scale(0.92) rotate(-6deg); opacity: 0.9; }
+    25% { transform: translateY(0px) scale(1) rotate(-2deg); opacity: 1; }
+    50% { transform: translateY(4px) scale(0.98) rotate(2deg); opacity: 0.85; }
+    75% { transform: translateY(2px) scale(1.02) rotate(-1deg); opacity: 0.95; }
+    100% { transform: translateY(6px) scale(0.92) rotate(-6deg); opacity: 0.9; }
+  }
+
   /* Blink cursor for typewriter */
   .animate-blink {
     animation: blink 1s step-end infinite;

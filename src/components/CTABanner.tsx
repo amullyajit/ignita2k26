@@ -53,7 +53,7 @@ const CTABanner = () => (
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <motion.a
-            href="#"
+            href="/events"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="glow-button pulse-cta cta-sweep inline-flex items-center justify-center gap-2 ripple-button"
@@ -61,7 +61,7 @@ const CTABanner = () => (
             Register Now <ArrowRight size={18} />
           </motion.a>
           <motion.a
-            href="#events"
+            href="/#events"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="glow-button-secondary inline-flex items-center justify-center gap-2 ripple-button"
